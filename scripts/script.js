@@ -1,19 +1,35 @@
 'use strict';
 
-let URL_BASE = "https://pokeapi.co/api/v2/pokemon";
+let limit = 20;
+let URL_BASE = 'https://pokeapi.co/api/v2/pokemon/';
 
-function init (){
-    console.log("Test");
-    fetchData()
-
+function init() {
+  console.log();
+  fetchData();
 }
 
+/** zieht 20 neue pokemons */
+function moreBtn() {
+  limit += 20;
+
+  console.log(limit);
+}
+
+/** holt daten von API */
 async function fetchData() {
-  let response = await fetch(URL_BASE);
-  let responseToJson = await response.json();
-  console.log(responseToJson.results[0]);
+  let responseAllPokemons = await fetch(URL_BASE);
+  let pokemonsToJson = await responseAllPokemons.json();
+  let allPokemons = pokemonsToJson.results;
+  console.log(pokemonsToJson);
+  renderPokemons(allPokemons);
 }
 
-function renderPokemonBox (){
-    
+/** zeigt 20 pokemons */
+function renderPokemons(allPokemons) {
+  let contentRef = document.getElementById('pokemon_content');
+  contentRef.innerHTML = '';
+
+  for (let index = 0; index < limit; index++) {
+    contentRef.innerHTML += getPokemonsTemplate(index, allPokemons);
+  }
 }
