@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/font.css">
-    <link rel="stylesheet" href="./styles/standard.css">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/font.css" />
+    <link rel="stylesheet" href="./styles/standard.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="./scripts/template.js"></script>
     <script src="./scripts/script.js" defer></script>
-    <title>Document</title>
-</head>
-<body>
-<h1>Hello World!</h1>
-</body>
+    <title>Pokédex</title>
+  </head>
+  <body onload="init()">
+    <header>
+      <div class="logo-title">
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi.svg"
+          alt="logo von pokemon"
+        />
+        <h1>Pokédex</h1>
+      </div>
+      <div class="search-field">
+        <input type="search" placeholder="search Pokemon..." />
+        <img src="./assets/icons/search-btn.svg" alt="" />
+      </div>
+    </header>
+
+    <main class="main-content">
+
+      <div class="pokemon-box">
+
+        <div class="pokemon-header">
+          <p>bulbasaur</p>
+          <p>#001</p>
+        </div>
+        <div class="pokemon-img">
+            <img src="./assets/img/1.svg" alt="">
+        </div>
+        <div class="pokemon-footer">
+            <p>GRASS</p>
+            <p>POISON</p>
+        </div>
+
+      </div>
+
+      <div class="more-btn"></div>
+
+    </main>
+
+    <footer></footer>
+  </body>
 </html>

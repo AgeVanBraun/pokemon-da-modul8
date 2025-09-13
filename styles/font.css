@@ -1,14 +1,27 @@
 @font-face {
   font-family: 'Roboto';
-  src: url('../assets/fonts/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+  src: url('../assets/fonts/Roboto-VariableFont_wdth-wght.ttf') format('truetype');
   font-style: normal;
   font-weight: 100 900;
 }
 
-/* Roboto kursiv */
 @font-face {
   font-family: 'Roboto';
-  src: url('../assets/fonts/Roboto-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+  src: url('../assets/fonts/Roboto-Italic-VariableFont_wdth-wght.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../assets/fonts/NunitoSans-VariableFont_YTLC-opsz-wdth-wght.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../assets/fonts/NunitoSans-Italic-VariableFont_YTLC-opsz-wdth-wght.ttf') format('truetype');
   font-style: italic;
   font-weight: 100 900;
 }
