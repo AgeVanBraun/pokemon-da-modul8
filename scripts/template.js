@@ -1,7 +1,7 @@
-function getPokemonsTemplate(index, allPokemons) {
+function getPokemonsTemplate(index, pokemonList) {
   return  `<div class="pokemon-box">
             <div class="pokemon-header">
-             <p>${allPokemons[index].name}</p>
+             <p>${pokemonList[index].name}</p>
              <p>#${[index + 1]}</p>
              </div>
             <div class="pokemon-img">
