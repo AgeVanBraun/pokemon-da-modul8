@@ -1,7 +1,10 @@
 'use strict';
 
+let id = 1;
 let URL_BASE = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
+let URL_Pokemon = `https://pokeapi.co/api/v2/pokemon/${id}`;
 let pokemonList = [];
+let pokemon = [];
 
 function init() {
   fetchData();
@@ -16,8 +19,15 @@ function moreBtn() {
 async function fetchData() {
   let responseAllPokemons = await fetch(URL_BASE);
   let pokemonsToJson = await responseAllPokemons.json();
+
+  let responsePokemon = await fetch(URL_Pokemon);
+  let pokemonToJson = await responsePokemon.json();
+
+  console.log(pokemonToJson.id);
+
   let startIndex = pokemonList.length;
   pokemonList.push(...pokemonsToJson.results);
+  pokemon.push(...pokemonToJson);
   URL_BASE = pokemonsToJson.next;
 
   renderPokemons(startIndex);
