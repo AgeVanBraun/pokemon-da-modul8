@@ -1,4 +1,4 @@
-function getPokemonsTemplate(index, pokemonList) {
+function getPokemonsTemplate(index, pokemonList, pokemon) {
   return  `<div class="pokemon-box">
             <div class="pokemon-header">
              <p>${pokemonList[index].name}</p>
@@ -8,7 +8,7 @@ function getPokemonsTemplate(index, pokemonList) {
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg" alt="">
             </div>
              <div class="pokemon-footer">
-            <p>GRASS</p>
+            <p>${pokemon}</p>
             <p>POISON</p>
             </div>
             </div>`;

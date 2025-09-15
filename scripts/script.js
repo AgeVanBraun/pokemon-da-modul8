@@ -7,37 +7,50 @@ let pokemonList = [];
 let pokemon = [];
 
 function init() {
-  fetchData();
+  fetchAllPokemonsData();
+  fetchPokemonData();
 }
 
 /** zieht 20 neue pokemons */
 function moreBtn() {
-  fetchData();
+  fetchAllPokemonsData();
 }
 
-/** holt daten von API */
-async function fetchData() {
+/** zieht immer 20 pokemons von API */
+async function fetchAllPokemonsData() {
   let responseAllPokemons = await fetch(URL_BASE);
   let pokemonsToJson = await responseAllPokemons.json();
 
+  console.log();
+
+  let startIndex = pokemonList.length;
+  pokemonList.push(...pokemonsToJson.results);
+
+  URL_BASE = pokemonsToJson.next;
+
+  console.log(pokemonList);
+
+  renderPokemons(startIndex);
+}
+
+/** zieht pokemon von API */
+async function fetchPokemonData(id) {
   let responsePokemon = await fetch(URL_Pokemon);
   let pokemonToJson = await responsePokemon.json();
 
   console.log(pokemonToJson);
 
-  let startIndex = pokemonList.length;
-  pokemonList.push(...pokemonsToJson.results);
-  pokemon.push(...pokemonToJson.name);
-  URL_BASE = pokemonsToJson.next;
+  pokemon.push(pokemonToJson);
 
-  renderPokemons(startIndex);
+  console.log(pokemon);
+  renderPokemons(id)
 }
 
 /** zeigt 20 pokemons */
-function renderPokemons(startIndex) {
+function renderPokemons(startIndex, id) {
   let contentRef = document.getElementById('pokemon_content');
 
   for (let index = startIndex; index < pokemonList.length; index++) {
-    contentRef.innerHTML += getPokemonsTemplate(index, pokemonList);
+    contentRef.innerHTML += getPokemonsTemplate(index, pokemonList, pokemon);
   }
 }
