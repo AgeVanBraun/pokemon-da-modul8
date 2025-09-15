@@ -23,11 +23,11 @@ async function fetchData() {
   let responsePokemon = await fetch(URL_Pokemon);
   let pokemonToJson = await responsePokemon.json();
 
-  console.log(pokemonToJson.id);
+  console.log(pokemonToJson);
 
   let startIndex = pokemonList.length;
   pokemonList.push(...pokemonsToJson.results);
-  pokemon.push(...pokemonToJson);
+  pokemon.push(...pokemonToJson.name);
   URL_BASE = pokemonsToJson.next;
 
   renderPokemons(startIndex);
