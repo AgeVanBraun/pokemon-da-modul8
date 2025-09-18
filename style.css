@@ -5,6 +5,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 16px;
   gap: 32px;
 }
 
@@ -23,7 +24,7 @@ header {
 .search-field {
   display: flex;
   justify-content: center;
-  margin-bottom: 128px;
+  margin-bottom: 64px;
   width: 100%;
 }
 
@@ -55,11 +56,10 @@ input {
 .main-content {
   margin: 0 auto;
   max-width: 1920px;
-
 }
 
-.pokemon-content{
-    display: grid;
+.pokemon-content {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 32px; /* Abstand zwischen den Boxen */
   padding: 0 16px; /* kleiner Rand links/rechts */
@@ -71,9 +71,10 @@ input {
   flex-direction: column;
   justify-content: center;
   max-width: 300px;
-  background-color: rgba(255, 228, 196, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 32px;
-  box-shadow: 0px 0px 32px rgba(254, 201, 27, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 16px rgba(254, 201, 27, 0.5);
 }
 
 .pokemon-header {
@@ -92,7 +93,7 @@ input {
 .pokemon-box img {
   width: 256px;
   height: 256px;
-  padding: 16px;
+  padding: 32px;
   filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 }
 
@@ -104,23 +105,37 @@ input {
   justify-content: space-around;
   font-size: 1.2rem;
   font-weight: bold;
+
 }
 
-.more-btn{
-    margin-top: 128px;
-    margin-bottom: 128px;
-    display: flex;
-    justify-content: center;
+.more-btn {
+  margin-top: 64px;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
 }
 
-.more-btn button{
-    font-size: 1.2rem;
-    padding: 16px 64px;
-    border-radius: 16px;
-    border: 0;
-    background-color: rgb(254, 202, 27);
-    cursor: pointer;
-    color: beige;
+.more-btn button {
+  font-size: 2rem;
+  padding: 16px 64px;
+  border-radius: 16px;
+  border: 0;
+  background-color: rgb(254, 202, 27);
+  cursor: pointer;
+  color: beige;
+
 }
 
-
+.pokemons-total {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(254, 202, 27);
+  font-size: 2rem;
+}

@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi.svg" type="image/x-icon">
     <link rel="stylesheet" href="./styles/font.css" />
     <link rel="stylesheet" href="./styles/standard.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="./scripts/template.js"></script>
     <script src="./scripts/script.js" defer></script>
-    <title>Pokédex by Heiko Braun</title>
+    <title>PokéAPI</title>
   </head>
   <body onload="init()">
     <header>
@@ -30,7 +31,8 @@
       <div class="pokemon-content" id="pokemon_content"></div>
 
       <div class="more-btn">
-        <button onclick="moreBtn()">more</button>
+        <p id="pokemons_total" class="pokemons-total">ANzahl</p>
+        <button onclick="morePokemonsBtn()">more</button>
       </div>
 
     </main>
