@@ -74,7 +74,17 @@ input {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 32px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0px 0px 16px rgba(254, 201, 27, 0.5);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8), 2px 2px 12px rgba(0, 0, 0, 0.6),
+    4px 4px 16px rgba(0, 0, 0, 0.4);
+
+  transition: transform 0.4s;
+}
+
+.pokemon-box:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 6px 6px 12px rgba(0, 0, 0, 0.6),
+    8px 8px 16px rgba(0, 0, 0, 0.4), 10px 10px 32px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-header {
@@ -105,7 +115,6 @@ input {
   justify-content: space-around;
   font-size: 1.2rem;
   font-weight: bold;
-
 }
 
 .more-btn {
@@ -126,7 +135,13 @@ input {
   background-color: rgb(254, 202, 27);
   cursor: pointer;
   color: beige;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+}
 
+.more-btn button:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.54);
 }
 
 .pokemons-total {
@@ -138,4 +153,5 @@ input {
   align-items: center;
   background-color: rgb(254, 202, 27);
   font-size: 2rem;
+  font-weight: bolder;
 }
