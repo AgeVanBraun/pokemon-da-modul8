@@ -1,56 +1,60 @@
 'use strict';
 
-let id = 1;
-let URL_BASE = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
-let URL_Pokemon = `https://pokeapi.co/api/v2/pokemon/${id}`;
+let URL_ALLPOKEMONS = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
+
 let pokemonList = [];
-let pokemon = [];
+let pokemonDetailsList = [];
 
 function init() {
   fetchAllPokemonsData();
-  fetchPokemonData();
+  console.log(pokemonList);
+  console.log(pokemonDetailsList);
 }
 
 /** zieht 20 neue pokemons */
-function moreBtn() {
+function morePokemonsBtn() {
   fetchAllPokemonsData();
 }
 
 /** zieht immer 20 pokemons von API */
 async function fetchAllPokemonsData() {
-  let responseAllPokemons = await fetch(URL_BASE);
+  let responseAllPokemons = await fetch(URL_ALLPOKEMONS);
   let pokemonsToJson = await responseAllPokemons.json();
-
-  console.log();
 
   let startIndex = pokemonList.length;
   pokemonList.push(...pokemonsToJson.results);
 
-  URL_BASE = pokemonsToJson.next;
+  URL_ALLPOKEMONS = pokemonsToJson.next;
 
-  console.log(pokemonList);
-
-  renderPokemons(startIndex);
+  fetchPokemonDetailsData(startIndex);
 }
 
 /** zieht pokemon von API */
-async function fetchPokemonData(id) {
-  let responsePokemon = await fetch(URL_Pokemon);
-  let pokemonToJson = await responsePokemon.json();
+async function fetchPokemonDetailsData(startIndex) {
+  for (let index = startIndex; index < pokemonList.length; index++) {
+    let pokemonDetails = await fetch(`https://pokeapi.co/api/v2/pokemon/${index + 1}`);
+    let pokemonDetailsToJson = await pokemonDetails.json();
 
-  console.log(pokemonToJson);
-
-  pokemon.push(pokemonToJson);
-
-  console.log(pokemon);
-  renderPokemons(id)
+    pokemonDetailsList.push(pokemonDetailsToJson);
+  }
+  renderPokemons(startIndex);
 }
 
 /** zeigt 20 pokemons */
-function renderPokemons(startIndex, id) {
+function renderPokemons(startIndex) {
   let contentRef = document.getElementById('pokemon_content');
+  console.log(pokemonList.length);
+  console.log(pokemonDetailsList.length);
 
-  for (let index = startIndex; index < pokemonList.length; index++) {
-    contentRef.innerHTML += getPokemonsTemplate(index, pokemonList, pokemon);
+  for (let index = startIndex; index < pokemonDetailsList.length; index++) {
+    let type1 = pokemonDetailsList[index].types[0].type.name.toUpperCase();
+    let type2 = '';
+    let pokemonsTotal = document.getElementById('pokemons_total');
+    pokemonsTotal.innerHTML = pokemonDetailsList.length
+
+    if (pokemonDetailsList[index].types.length > 1) {
+      type2 = pokemonDetailsList[index].types[1].type.name.toUpperCase();
+    }
+    contentRef.innerHTML += getPokemonsTemplate(index, type1, type2);
   }
 }
