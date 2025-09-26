@@ -74,7 +74,7 @@ input {
   max-width: 300px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8), 2px 2px 12px rgba(0, 0, 0, 0.6),
     4px 4px 16px rgba(0, 0, 0, 0.4);
   transition: transform 0.4s;
@@ -108,13 +108,14 @@ input {
 }
 
 .pokemon-footer {
-  background-color: rgb(254, 202, 27);
+  background-color: #333;
   border-radius: 0 0px 32px 32px;
   padding: 16px;
   display: flex;
-  justify-content: space-around;
+  justify-content:space-around;
   font-size: 1.2rem;
   font-weight: bold;
+
 }
 /* #endregion */
 
@@ -134,7 +135,7 @@ input {
   font-size: 2rem;
   padding: 16px 64px;
   border-radius: 16px;
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   background-color: rgb(254, 202, 27);
   cursor: pointer;
   color: beige;
@@ -149,9 +150,10 @@ input {
 /* #endregion */
 
 .pokemons-total {
-  height: 64px;
-  width: 64px;
+  height: 128px;
+  width:128px;
   border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;

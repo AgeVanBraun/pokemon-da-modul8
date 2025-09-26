@@ -1,15 +1,15 @@
-function getPokemonsTemplate(index, type1, type2) {
+function getPokemonsTemplate(index, pokemon, type1, type2) {
   return  `<div class="pokemon-box">
             <div class="pokemon-header">
-             <p>${pokemonList[index].name.toUpperCase()}</p>
-             <p>#${[index + 1]}</p>
+             <p>${pokemon.name.toUpperCase()}</p>
+             <p>#${pokemon.id}</p>
              </div>
             <div class="pokemon-img">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg" alt="">
+            <img src="${pokemon.sprites.other.dream_world.front_default}" alt="">
             </div>
-             <div class="pokemon-footer">
-            <p class="txt-shadow">${type1}</p>
-            <p class="txt-shadow">${type2}</p>
+             <div class="pokemon-footer" id="pokemon_footer_${index}">
+            <p class="txt-shadow">${type1.toUpperCase()}</p>
+            <p class="txt-shadow"></p>
             </div>
             </div>`;
 }

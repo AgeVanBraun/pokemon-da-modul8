@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi.svg" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi.svg"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./styles/font.css" />
     <link rel="stylesheet" href="./styles/standard.css" />
     <link rel="stylesheet" href="style.css" />
@@ -22,23 +26,64 @@
         <h1>Pokédex</h1>
       </div>
       <div class="search-field">
-        
-        <input type="search" id="search" name="q" placeholder="at least 3 letters..." />
+        <input
+          type="search"
+          id="search_input"
+          onkeyup="searchPokemon()"
+          name="q"
+          placeholder="at least 3 letters..."
+        />
         <img src="./assets/icons/search-btn.svg" alt="" />
       </div>
     </header>
 
     <main class="main-content">
-
       <div class="pokemon-content" id="pokemon_content"></div>
 
       <div class="more-btn">
         <p id="pokemons_total" class="pokemons-total txt-shadow">ANzahl</p>
         <button onclick="morePokemonsBtn()">more</button>
       </div>
-
     </main>
 
     <footer></footer>
+    <div class="overlay-content" id="overlay">
+      <div class="overlay-pokemon-card">
+        <div class="overlay-nav">
+          <button><</button>
+          <button>X</button>
+          <button>></button>
+        </div>
+        <div class="overlay-pokemon-header">
+          <p>Name</p>
+          <p>ID</p>
+        </div>
+        <div class="-overlaypokemon-img">
+          <img src="" alt="" />
+        </div>
+        <div class="overlay-pokemon-details-tabs">
+          <p>INFO</p>
+          <p>STATS</p>
+        </div>
+        <div class="types">
+          <p>Type1</p>
+          <p>Type2</p>
+        </div>
+        <div class="overlay-pokemon-infos">
+          <div class="info-item">
+            <p>Height</p>
+            <p>wert</p>
+            <div class="info-item">
+              <p>Weight</p>
+              <p>wert</p>
+            </div>
+            <div class="info-item">
+              <p>EXP</p>
+              <p>wert</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
