@@ -1,0 +1,114 @@
+.d_none{
+    display: none !important;
+}
+.overlay-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.overlay-pokemon-card {
+  padding: 16px;
+  width: 320px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8), 2px 2px 12px rgba(0, 0, 0, 0.6),
+    4px 4px 16px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.overlay-nav {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.overlay-nav button {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+}
+
+.overlay-pokemon-header {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
+
+.overlay-pokemon-img {
+  display: flex;
+  justify-content: center;
+}
+
+.overlay-pokemon-img img {
+  width: 300px;
+  padding: 32px;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 1));
+}
+
+.overlay-pokemon-details-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  color: #333;
+}
+
+.overlay-pokemon-details-tabs p {
+  background-color: bisque;
+  padding: 4px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.overlay-pokemon-types {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.overlay-pokemon-types p {
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 8px;
+  color: #333;
+  font-weight: bold;
+}
+
+.overlay-pokemon-infos {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+}
+
+.overlay-info-item {
+  height: 90px;
+  width: 90px;
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 8px;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}

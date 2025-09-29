@@ -1,5 +1,5 @@
 function getPokemonsTemplate(index, pokemon, type1, type2) {
-  return  `<div class="pokemon-box">
+  return  `<div onclick="toggleOverlay(${index})" class="pokemon-box">
             <div class="pokemon-header">
              <p>${pokemon.name.toUpperCase()}</p>
              <p>#${pokemon.id}</p>

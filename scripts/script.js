@@ -4,16 +4,15 @@ let URL_ALLPOKEMONS = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
 let pokemonList = [];
 let pokemonDetailsList = [];
 let searchInput = document.getElementById('search_input');
+let currentPokemon = 0;
 
 function init() {
   fetchAllPokemonsData();
-
 }
 
 /** zieht 20 neue pokemons */
 function morePokemonsBtn() {
   fetchAllPokemonsData();
-
 }
 
 /** zieht immer 20 pokemons von API */
@@ -56,12 +55,14 @@ function renderPokemons(startIndex) {
       type2 = pokemonDetailsList[index].types[1].type.name;
     }
     contentRef.innerHTML += getPokemonsTemplate(index, pokemon, type1, type2);
+    
+    toggleOverlay(index)
     pokemonColor(index, type1);
   }
-  console.groupCollapsed("Pokemons + Details")
+  console.groupCollapsed('Pokemons + Details');
   console.log(pokemonList);
   console.log(pokemonDetailsList);
-  console.groupEnd()
+  console.groupEnd();
 }
 
 /** ändert die bg color von pokemon-footer nach type */
