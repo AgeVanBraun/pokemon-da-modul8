@@ -18,7 +18,7 @@ function getPokemonsOverlayTemplate(index, pokemon, type1, type2) {
   return `<div class="overlay-pokemon-card">
         <div class="overlay-nav">
           <button id="prev_btn">＜</button>
-          <button id="close_btn">❌</button>
+          <button id="close_btn">X</button>
           <button id="next_btn">＞</button>
         </div>
         <div class="overlay-pokemon-header">
