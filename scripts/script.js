@@ -42,9 +42,7 @@ async function fetchPokemonDetailsData(startIndex) {
 /** zeigt 20 pokemons */
 function renderPokemons(startIndex) {
   let contentRef = document.getElementById('pokemon_content');
-  let pokemonsTotal = document.getElementById('pokemons_total');
-
-  pokemonsTotal.innerHTML = pokemonDetailsList.length;
+  let pokemonOverlayRef = document.getElementById('overlay');
 
   for (let index = startIndex; index < pokemonDetailsList.length; index++) {
     let type1 = pokemonDetailsList[index].types[0].type.name;
@@ -55,14 +53,10 @@ function renderPokemons(startIndex) {
       type2 = pokemonDetailsList[index].types[1].type.name;
     }
     contentRef.innerHTML += getPokemonsTemplate(index, pokemon, type1, type2);
-    
-    toggleOverlay(index)
     pokemonColor(index, type1);
   }
-  console.groupCollapsed('Pokemons + Details');
-  console.log(pokemonList);
-  console.log(pokemonDetailsList);
-  console.groupEnd();
+
+  pokemonOverlayRef.innerHTML = '';
 }
 
 /** ändert die bg color von pokemon-footer nach type */
@@ -107,7 +101,7 @@ function pokemonColor(index, type1) {
 }
 
 /** sucht pokemon ab 3 buchstaben sonst alle pokemons */
-function searchPokemon() {
+function searchPokemon(index) {
   let contentRef = document.getElementById('pokemon_content');
   let searchValue = searchInput.value.toLowerCase();
   let inputLength = searchInput.value.length;
@@ -121,7 +115,8 @@ function searchPokemon() {
   contentRef.innerHTML = '';
 
   filteredList.forEach((pokemon, index) => {
-    contentRef.innerHTML += getPokemonsTemplate(index, pokemon, pokemon.types[0].type.name);
-    pokemonColor(index, pokemon.types[0].type.name);
+    const realIndex = pokemonDetailsList.findIndex((p) => p.id === pokemon.id);
+    contentRef.innerHTML += getPokemonsTemplate(realIndex, pokemon, pokemon.types[0].type.name);
+    pokemonColor(realIndex, pokemon.types[0].type.name);
   });
 }

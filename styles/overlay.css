@@ -43,6 +43,31 @@
   cursor: pointer;
 }
 
+#close_btn{
+  transition: transform 0.2s;
+}
+
+#close_btn:hover{
+transform: scale(1.2);
+}
+
+#next_btn{
+  transition: transform 0.2s;
+}
+
+#next_btn:hover{
+transform: scale(1.2);
+}
+
+#prev_btn{
+  transition: transform 0.2s;
+}
+
+#prev_btn:hover{
+transform: scale(1.2);
+}
+
+
 .overlay-pokemon-header {
   display: flex;
   justify-content: space-around;
@@ -55,7 +80,9 @@
 }
 
 .overlay-pokemon-img img {
-  width: 300px;
+  width: 275px;
+  min-height: 275px;
+  max-height: 275px;
   padding: 32px;
   filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 1));
 }
@@ -63,7 +90,7 @@
 .overlay-pokemon-details-tabs {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 32px;
   padding: 8px;
   background-color: #ffffff;
   border-radius: 8px;
